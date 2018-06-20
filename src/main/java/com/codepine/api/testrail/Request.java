@@ -68,6 +68,7 @@ public abstract class Request<T> {
     private static final ObjectMapper JSON = new ObjectMapper()
             .setPropertyNamingStrategy(PropertyNamingStrategy.CAMEL_CASE_TO_LOWER_CASE_WITH_UNDERSCORES)
             .configure(MapperFeature.DEFAULT_VIEW_INCLUSION, false)
+            .enable(DeserializationFeature.ACCEPT_SINGLE_VALUE_AS_ARRAY)
             .setSerializationInclusion(JsonInclude.Include.NON_NULL)
             .disable(SerializationFeature.FAIL_ON_EMPTY_BEANS)
             .disable(DeserializationFeature.FAIL_ON_UNKNOWN_PROPERTIES)
